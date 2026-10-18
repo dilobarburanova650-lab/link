@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b12">
+  <title>ScreenLink — Screen Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="logo" href="#home">
+      <span class="logo-mark"><svg viewBox="0 0 32 32" fill="none"><rect x="5" y="5" width="22" height="22" rx="7" stroke="currentColor" stroke-width="2"/><path d="M12 11L21 16L12 21V11Z" fill="currentColor"/></svg></span>
+      <span>screen<span>link</span><small>SCREEN STUDIO</small></span>
+    </a>
+
+    <div class="side-label">WORKSPACE</div>
+    <a class="nav-item active" href="#studio"><span>▦</span> Ekran studiyasi</a>
+    <a class="nav-item" href="#connect"><span>⌁</span> Qurilmani ulash</a>
+    <a class="nav-item" href="#stream"><span>◉</span> Jonli efir</a>
+    <a class="nav-item" href="#guide"><span>▤</span> Yo‘riqnoma</a>
+
+    <div class="sidebar-bottom">
+      <div class="help-card">
+        <span class="help-icon">✦</span>
+        <strong>Ekraningni ulashga tayyormisan?</strong>
+        <p>Qurilmangni tanla va ulash yo‘lini ko‘r.</p>
+        <a href="#connect">Boshlash <span>↗</span></a>
+      </div>
+      <div class="sidebar-foot"><span class="online-dot"></span> Lokal boshqaruv paneli</div>
+    </div>
+  </aside>
+
+  <main class="main" id="home">
+    <header class="topbar">
+      <div class="breadcrumb">Workspace <span>/</span> <strong>Screen Studio</strong></div>
+      <div class="top-actions">
+        <span class="secure-label"><span>●</span> Qurilma ruxsati talab qilinadi</span>
+        <button id="themeBtn" class="icon-btn" aria-label="Rang rejimini almashtirish">☼</button>
+      </div>
+    </header>
+
+    <section class="welcome" id="studio">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-line"></span> SCREEN CONTROL CENTER</div>
+        <h1>Hammasi bitta <span>ekranda.</span></h1>
+        <p>Telefon ekranini kompyuterda ko‘r. O‘yin, dars, taqdimot va jonli efir uchun ish joyingni tayyorla.</p>
+      </div>
+      <div class="welcome-chip"><span class="pulse-dot"></span><span id="topStatus">Ulanish kutilmoqda</span></div>
+    </section>
+
+    <section class="workspace-grid">
+      <div class="preview-card">
+        <div class="card-header">
+          <div class="header-title"><span class="header-icon">▣</span><div><h2>Ekran oynasi</h2><p>Tanlangan ekran yoki oynaning ko‘rinishi</p></div></div>
+          <span class="status-tag" id="previewTag"><i></i> OFFLINE</span>
+        </div>
+
+        <div class="preview-area" id="previewArea">
+          <div class="preview-grid"></div>
+          <div class="empty-state" id="emptyState">
+            <div class="empty-device">
+              <svg viewBox="0 0 64 64" fill="none"><rect x="12" y="5" width="40" height="54" rx="8" stroke="currentColor" stroke-width="2"/><path d="M23 14H41M25 50H39" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M27 29L39 35L27 41V29Z" fill="currentColor"/></svg>
+            </div>
+            <span class="empty-overline">PREVIEW WINDOW</span>
+            <h3>Ekraning shu yerda ko‘rinadi</h3>
+            <p>Quyidagi tugma orqali kompyuterdagi ekran yoki oynani tanla.</p>
+            <button class="primary-btn" id="startShare"><span>▣</span> Ekranni tanlash <b>↗</b></button>
+            <small class="shortcut-note">Brauzer ruxsati kerak bo‘ladi</small>
+          </div>
+          <video id="screenVideo" autoplay playsinline muted class="hidden"></video>
+          <div class="preview-overlay hidden" id="previewOverlay">
+            <span class="live-pill"><i></i> LIVE PREVIEW</span>
+            <button id="videoFullscreen" class="icon-btn fullscreen-btn" title="To‘liq ekran">⛶</button>
+          </div>
+        </div>
+
+        <div class="preview-controls">
+          <div class="preview-meta"><span class="mini-dot" id="previewDot"></span><span id="previewText">Ekran tanlanmagan</span></div>
+          <div class="control-actions">
+            <button class="outline-btn" id="fullscreenBtn">⛶ <span>To‘liq ekran</span></button>
+            <button class="danger-btn hidden" id="stopShare">■ <span>To‘xtatish</span></button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="control-card" id="connect">
+        <div class="card-header">
+          <div><h2>Ulanish paneli</h2><p>Qurilmangni sozla</p></div>
+          <span class="settings-glyph">⚙</span>
+        </div>
+
+        <div class="field-label">1. QURILMA TURINI TANLA</div>
+        <div class="device-tabs" role="group" aria-label="Qurilma turi">
+          <button class="device-tab active" data-device="android"><span class="device-symbol">▯</span><span><strong>Android</strong><small>Samsung, Redmi...</small></span><i>✓</i></button>
+          <button class="device-tab" data-device="iphone"><span class="device-symbol">▯</span><span><strong>iPhone</strong><small>iOS qurilma</small></span><i>✓</i></button>
+        </div>
+
+        <div class="field-label second-label">2. ULANISH USULI</div>
+        <div class="method-options">
+          <button class="method-option selected" data-method="usb"><span class="method-symbol">⌁</span><span><strong>USB kabel</strong><small>Kabel orqali</small></span><span class="radio-dot"></span></button>
+          <button class="method-option" data-method="wifi"><span class="method-symbol">◔</span><span><strong>Wi-Fi / simsiz</strong><small>Simsiz aks ettirish</small></span><span class="radio-dot"></span></button>
+          <button class="method-option" data-method="browser"><span class="method-symbol">▣</span><span><strong>Brauzer oynasi</strong><small>Kompyuter ekranini tanlash</small></span><span class="radio-dot"></span></button>
+        </div>
+
+        <div class="connection-info" id="connectionInfo">
+          <div class="info-heading"><span>ⓘ</span><strong>Qanday ulash kerak?</strong></div>
+          <p id="connectionDescription">USB orqali telefonni kompyuterga ulang, keyin telefon ekranini aks ettiradigan mos dasturda oching. So‘ng brauzerda o‘sha oynani tanlang.</p>
+        </div>
+
+        <button class="primary-btn wide-btn" id="connectBtn"><span>▣</span> Ekranni ulash <b>↗</b></button>
+        <p class="permission-note">Ekran faqat sen ruxsat berib tanlagan vaqtda uzatiladi.</p>
+      </aside>
+    </section>
+
+    <section class="below-grid" id="stream">
+      <div class="section-title"><div><div class="eyebrow">YOUR WORKFLOW</div><h2>Keyingi qadaming</h2></div><span class="muted-count">01 — 03</span></div>
+      <div class="workflow-grid">
+        <article class="workflow-card">
+          <div class="workflow-top"><span class="workflow-icon violet">▯</span><span class="step">STEP 01</span></div>
+          <h3>Telefonni kompyuterga ulash</h3>
+          <p>USB kabel yoki mos simsiz aks ettirish vositasidan foydalan.</p>
+          <a href="#guide">Yo‘riqnomani ko‘r ↗</a>
+        </article>
+        <article class="workflow-card">
+          <div class="workflow-top"><span class="workflow-icon blue">▣</span><span class="step">STEP 02</span></div>
+          <h3>Ekranni ko‘rish</h3>
+          <p>Telefon tasviri kompyuterda ko‘ringach, uni brauzerda tanla.</p>
+          <a href="#studio">Ekran oynasiga o‘t ↗</a>
+        </article>
+        <article class="workflow-card">
+          <div class="workflow-top"><span class="workflow-icon rose">▶</span><span class="step">STEP 03</span></div>
+          <h3>YouTube’da efir</h3>
+          <p>OBS Studio’da telefon oynasini manba sifatida qo‘shib, efirni sozla.</p>
+          <a href="https://obsproject.com/" target="_blank" rel="noopener noreferrer">OBS Studio ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="guide-section" id="guide">
+      <div class="section-title"><div><div class="eyebrow">QUICK GUIDE</div><h2>Ulanish bo‘yicha yordam</h2></div></div>
+      <div class="guide-box">
+        <div class="guide-symbol">⌁</div>
+        <div class="guide-copy"><h3 id="guideTitle">Android telefonni ulash</h3><p id="guideText">Telefonni USB kabel bilan ulang va ekran aks ettirish dasturidan foydalaning. Masalan, scrcpy Android ekranini kompyuterda ko‘rsatishi mumkin.</p></div>
+        <a id="guideLink" class="outline-btn guide-link" href="https://github.com/Genymobile/scrcpy" target="_blank" rel="noopener noreferrer">Batafsil ↗</a>
+      </div>
+    </section>
+
+    <section class="stream-banner">
+      <div class="stream-logo">▶</div>
+      <div><span class="eyebrow">CREATOR WORKSPACE</span><h2>Jonli efiringni tayyorla</h2><p>OBS orqali ekran manbasini qo‘sh. YouTube efirini boshlashdan oldin bildirishnomalar va maxfiy ma’lumotlarni yashir.</p></div>
+      <a href="https://support.google.com/youtube/" target="_blank" rel="noopener noreferrer" class="outline-btn">YouTube yordam ↗</a>
+    </section>
+
+    <footer class="footer"><a class="logo footer-logo" href="#home"><span class="logo-mark">S</span><span>screen<span>link</span></span></a><span>Telefon va kompyuter — bir ish joyida.</span><span>© <span id="year"></span> ScreenLink</span></footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
